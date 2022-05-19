@@ -1,1 +1,3 @@
-Solution
+In this series, we will develop RESTful APIs using ASP.NET Core, Clean Architecture, CosmosDB, MediatR, CQRS, and Domain-Driven Design (DDD). We will be using various Azure services like Azure Functions (serverless), Azure Service Bus, Key Vault, Blob Storage, Azure CDN, App Services, Azure Active Directory, API Management, Azure Logic Apps, Azure Dev-Ops and maybe a few more.
+
+As we are going to use Clean architecture so it doesn't matter even if you want to use any other infrastructure. For example, even if you want to use SQL Server or PostgreSQL as a database and AWS or Google Cloud services instead of Azure Services still you can go ahead and watch the series. It will definitely help. Please let me know your suggestion in the comment section. Thank you.
