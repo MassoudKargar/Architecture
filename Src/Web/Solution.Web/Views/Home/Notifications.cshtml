@@ -1,0 +1,133 @@
+﻿<div class="mb-3">
+    <h1 class="h3 d-inline align-middle">Notifications</h1><a class="badge bg-success text-white ml-2" href="https://adminkit.io/pricing/"
+                                                              target="_blank">Pro Component <i class="fas fa-fw fa-external-link-alt"></i></a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title">Toast notifications</h5>
+                <h6 class="card-subtitle text-muted">
+                    Notyf is a minimalistic JavaScript library for toast notifications. See official
+                    documentation <a href="https://github.com/caroso1222/notyf" target="_blank" rel="noopener noreferrer">here</a>.
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="mb-3">
+                            <label class="form-label" for="notyf-message">Message</label>
+                            <input id="notyf-message" name="notyf-message" type="text" class="form-control" placeholder="Enter a message">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="notyf-type">Type</label>
+                            <select class="form-select" id="notyf-type" name="notyf-type">
+                                <option value="default" selected>Default</option>
+                                <option value="success">Success</option>
+                                <option value="warning">Warning</option>
+                                <option value="danger">Danger</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="notyf-duration">Duration</label>
+                            <select class="form-select" id="notyf-duration" name="notyf-duration">
+                                <option value="2500">2.5s</option>
+                                <option value="5000" selected>5s</option>
+                                <option value="7500">7.5s</option>
+                                <option value="10000">10s</option>
+                            </select>
+                        </div>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" id="notyf-ripple" checked>
+                            <span class="form-check-label">
+                                With ripple
+                            </span>
+                        </label>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" id="notyf-dismissible">
+                            <span class="form-check-label">
+                                Dismissible
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label mb-2">Position X</label>
+                            <label class="form-check">
+                                <input type="radio" name="notyf-position-x" class="form-check-input" value="left">
+                                <span class="form-check-label">Left</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="radio" name="notyf-position-x" class="form-check-input" value="center">
+                                <span class="form-check-label">Center</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="radio" name="notyf-position-x" class="form-check-input" value="right" checked>
+                                <span class="form-check-label">Right</span>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label mb-2">Position X</label>
+                            <label class="form-check">
+                                <input type="radio" name="notyf-position-y" class="form-check-input" value="top" checked>
+                                <span class="form-check-label">Top</span>
+                            </label>
+                            <label class="form-check">
+                                <input type="radio" name="notyf-position-y" class="form-check-input" value="bottom">
+                                <span class="form-check-label">Bottom</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button class="btn btn-primary mr-1" id="notyf-show">Show notification</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        // Notyf
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentMessageIndex = -1;
+
+            function getMessage() {
+                var messages = [
+                    "My name is Inigo Montoya. You killed my father. Prepare to die!",
+                    "Are you the six fingered man?",
+                    "Inconceivable!",
+                    "I do not think that means what you think it means.",
+                    "Have fun storming the castle!",
+                ];
+                currentMessageIndex++;
+                if (currentMessageIndex === messages.length) {
+                    currentMessageIndex = 0;
+                }
+                return messages[currentMessageIndex];
+            };
+            document.querySelector("#notyf-show").addEventListener("click", function () {
+                var message = document.querySelector("#notyf-message").value || getMessage();
+                var type = document.querySelector("#notyf-type").value;
+                var duration = document.querySelector("#notyf-duration").value;
+                var ripple = document.querySelector("#notyf-ripple").checked;
+                var dismissible = document.querySelector("#notyf-dismissible").checked;
+                var positionX = document.querySelector("input[name=\"notyf-position-x\"]:checked").value;
+                var positionY = document.querySelector("input[name=\"notyf-position-y\"]:checked").value;
+                window.notyf.open({
+                    type,
+                    message,
+                    duration,
+                    ripple,
+                    dismissible,
+                    position: {
+                        x: positionX,
+                        y: positionY
+                    }
+                });
+            });
+        });
+    </script>
+}
