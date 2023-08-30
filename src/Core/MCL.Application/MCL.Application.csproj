@@ -7,11 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\LeaveRequests\Requests\Queries\**" />
+    <EmbeddedResource Remove="Features\LeaveRequests\Requests\Queries\**" />
+    <None Remove="Features\LeaveRequests\Requests\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\LeaveRequests\Requests\Queries\GetLeaveRequestDetailRequest.cs" />
+    <Compile Include="Features\LeaveRequests\Requests\Queries\GetLeaveRequestListRequest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MCL.Domain\MCL.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\LeaveAllocations\Handlers\Commands\" />
+    <Folder Include="Features\LeaveAllocations\Requests\Commands\" />
+    <Folder Include="Features\LeaveRequests\Handlers\Commands\" />
+    <Folder Include="Features\LeaveRequests\Requests\Commands\" />
+    <Folder Include="Features\LeaveTypes\Handlers\Commands\" />
+    <Folder Include="Features\LeaveTypes\Requests\Commands\" />
   </ItemGroup>
 
 </Project>
