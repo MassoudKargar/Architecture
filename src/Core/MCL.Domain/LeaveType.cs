@@ -1,6 +1,4 @@
-﻿using MCL.Domain.Common;
-
-namespace MCL.Domain;
+﻿namespace MCL.Domain;
 public class LeaveType : BaseDomainEntity
 {
     public string Name { get; set; }
