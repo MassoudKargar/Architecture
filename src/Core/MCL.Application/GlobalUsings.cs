@@ -7,6 +7,7 @@ global using MCL.Application.DTOs.Common;
 global using MCL.Application.DTOs.LeaveAllocation;
 global using MCL.Application.DTOs.LeaveRequest;
 global using MCL.Application.DTOs.LeaveType;
+global using MCL.Application.Features.LeaveAllocations.Requests.Commands;
 global using MCL.Application.Features.LeaveAllocations.Requests.Queries;
 global using MCL.Application.Features.LeaveRequests.Requests.Commands;
 global using MCL.Application.Features.LeaveRequests.Requests.Queries;
