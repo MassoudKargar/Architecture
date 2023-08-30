@@ -1,4 +1,4 @@
-﻿namespace MCL.Application.DTOs;
+﻿namespace MCL.Application.DTOs.LeaveAllocation;
 public class LeaveAllocationDto : BaseDto
 {
     public int NumberOfDays { get; set; }

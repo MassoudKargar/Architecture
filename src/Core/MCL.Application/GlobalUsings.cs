@@ -5,6 +5,7 @@ global using AutoMapper;
 global using MCL.Application.DTOs;
 global using MCL.Application.DTOs.Common;
 global using MCL.Application.DTOs.LeaveRequest;
+global using MCL.Application.DTOs.LeaveType;
 global using MCL.Application.Features.LeaveAllocations.Requests.Queries;
 global using MCL.Application.Features.LeaveRequests.Requests.Queries;
 global using MCL.Application.Features.LeaveTypes.Requests;
