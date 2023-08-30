@@ -1,6 +1,4 @@
-﻿using MCL.Application.DTOs.LeaveAllocation;
-
-namespace MCL.Application.Profiles;
+﻿namespace MCL.Application.Profiles;
 public class MappingProfile : Profile
 {
     public MappingProfile()

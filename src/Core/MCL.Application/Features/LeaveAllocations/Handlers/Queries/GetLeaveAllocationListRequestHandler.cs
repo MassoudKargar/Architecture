@@ -1,6 +1,4 @@
-﻿using MCL.Application.DTOs.LeaveAllocation;
-
-namespace MCL.Application.Features.LeaveAllocations.Handlers.Queries;
+﻿namespace MCL.Application.Features.LeaveAllocations.Handlers.Queries;
 
 public class GetLeaveAllocationListRequestHandler : IRequestHandler<GetLeaveAllocationListRequest, List<LeaveAllocationDto>>
 {
