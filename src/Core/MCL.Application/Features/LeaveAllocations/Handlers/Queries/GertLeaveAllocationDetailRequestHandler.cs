@@ -11,6 +11,6 @@ public class GertLeaveAllocationDetailRequestHandler : IRequestHandler<GertLeave
     private IMapper Mapper { get; }
 
     public async Task<LeaveAllocationDto> Handle(GertLeaveAllocationDetailRequest request, CancellationToken cancellationToken) => 
-        Mapper.Map<LeaveAllocationDto>(await Repository.GetLeaveAllocationWithDetails(request.Id));
+        Mapper.Map<LeaveAllocationDto>(await Repository.GetLeaveAllocationWithDetails(request.Id,cancellationToken));
 }
 

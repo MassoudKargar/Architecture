@@ -9,8 +9,11 @@ public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveReque
 
     private ILeaveRequestRepository Repository { get; }
     private IMapper Mapper { get; }
-    public Task<Unit> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var leaveRequest = await Repository.GetAsync(request.LeaveRequestDto.Id, cancellationToken);
+        Mapper.Map(request.LeaveRequestDto, leaveRequest);
+        await Repository.UpdateAsync(leaveRequest, cancellationToken);
+        return Unit.Value;
     }
 }

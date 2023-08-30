@@ -11,6 +11,6 @@ public class GertLeaveTypeDetailRequestHandler : IRequestHandler<GertLeaveTypeDe
     private IMapper Mapper { get; }
 
     public async Task<LeaveTypeDto> Handle(GertLeaveTypeDetailRequest request, CancellationToken cancellationToken) => 
-        Mapper.Map<LeaveTypeDto>(await Repository.GetAsync(request.Id));
+        Mapper.Map<LeaveTypeDto>(await Repository.GetAsync(request.Id,cancellationToken));
 }
 

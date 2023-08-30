@@ -12,5 +12,5 @@ public class GetLeaveTypeListRequestHandler : IRequestHandler<GetLeaveTypeListRe
     private IMapper Mapper { get; }
 
     public async Task<List<LeaveTypeDto>> Handle(GetLeaveTypeListRequest request, CancellationToken cancellationToken) => 
-        Mapper.Map<List<LeaveTypeDto>>(await Repository.GetAllAsync());
+        Mapper.Map<List<LeaveTypeDto>>(await Repository.GetAllAsync(cancellationToken));
 }

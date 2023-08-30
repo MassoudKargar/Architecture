@@ -12,5 +12,5 @@ public class GetLeaveAllocationListRequestHandler : IRequestHandler<GetLeaveAllo
     private IMapper Mapper { get; }
 
     public async Task<List<LeaveAllocationDto>> Handle(GetLeaveAllocationListRequest request, CancellationToken cancellationToken) => 
-        Mapper.Map<List<LeaveAllocationDto>>(await Repository.GetLeaveAllocationsWithDetails());
+        Mapper.Map<List<LeaveAllocationDto>>(await Repository.GetLeaveAllocationsWithDetails(cancellationToken));
 }

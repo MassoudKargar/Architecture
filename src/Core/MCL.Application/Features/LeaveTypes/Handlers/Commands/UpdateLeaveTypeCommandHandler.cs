@@ -1,5 +1,5 @@
 ﻿namespace MCL.Application.Features.LeaveTypes.Handlers.Commands;
-public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeCommand,Unit>
+public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeCommand, Unit>
 {
     public UpdateLeaveTypeCommandHandler(ILeaveTypeRepository repository, IMapper mapper)
     {
@@ -10,8 +10,11 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
     private ILeaveTypeRepository Repository { get; }
     private IMapper Mapper { get; }
 
-    public Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var leaveType = await Repository.GetAsync(request.LeaveTypeDto.Id, cancellationToken);
+        Mapper.Map(request.LeaveTypeDto, leaveType);
+        await Repository.UpdateAsync(leaveType, cancellationToken);
+        return Unit.Value;
     }
 }

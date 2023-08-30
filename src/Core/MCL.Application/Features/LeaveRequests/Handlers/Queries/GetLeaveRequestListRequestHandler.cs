@@ -9,5 +9,5 @@ public class GetLeaveRequestListRequestHandler : IRequestHandler<GetLeaveRequest
     private IMapper Mapper { get; }
     private ILeaveRequestRepository Repository { get; }
     public async Task<List<LeaveRequestListDto>> Handle(GetLeaveRequestListRequest request, CancellationToken cancellationToken) =>
-        Mapper.Map<List<LeaveRequestListDto>>(await Repository.GetLeaveRequestsWithDetailsAsync());
+        Mapper.Map<List<LeaveRequestListDto>>(await Repository.GetLeaveRequestsWithDetailsAsync(cancellationToken));
 }
