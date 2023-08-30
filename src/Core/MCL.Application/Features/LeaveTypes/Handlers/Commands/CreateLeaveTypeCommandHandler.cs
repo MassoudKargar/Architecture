@@ -17,7 +17,7 @@ public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeComm
         var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDto, cancellationToken);
         if (validationResult.IsValid is false)
         {
-            throw new Exception();
+            throw new Exceptions.ValidationException(validationResult);
         }
         #endregion
 

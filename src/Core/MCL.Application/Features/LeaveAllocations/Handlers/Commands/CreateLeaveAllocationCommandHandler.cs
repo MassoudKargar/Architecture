@@ -17,7 +17,7 @@ public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAl
         var validationResult = await validator.ValidateAsync(request.CreateLeaveAllocationDto, cancellationToken);
         if (validationResult.IsValid is false)
         {
-            throw new Exception();
+            throw new Exceptions.ValidationException(validationResult);
         }
         #endregion
         var leaveAllocation = Mapper.Map<LeaveAllocation>(request.CreateLeaveAllocationDto);

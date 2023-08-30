@@ -19,7 +19,7 @@ public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveReque
         var validationResult = await validator.ValidateAsync(request.UpdateLeaveRequestDto, cancellationToken);
         if (validationResult.IsValid is false)
         {
-            throw new Exception();
+            throw new Exceptions.ValidationException(validationResult);
         }
         #endregion
         var leaveRequest = await Repository.GetAsync(request.Id, cancellationToken);

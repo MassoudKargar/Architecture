@@ -16,7 +16,7 @@ public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAl
         var validationResult = await validator.ValidateAsync(request.UpdateLeaveAllocationDto, cancellationToken);
         if (validationResult.IsValid is false)
         {
-            throw new Exception();
+            throw new Exceptions.ValidationException(validationResult);
         }
         #endregion
         var leaveAllocation = await Repository.GetAsync(request.UpdateLeaveAllocationDto.Id, cancellationToken);
