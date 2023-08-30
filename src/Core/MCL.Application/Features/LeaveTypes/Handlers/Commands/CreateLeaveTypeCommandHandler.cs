@@ -1,4 +1,6 @@
-﻿namespace MCL.Application.Features.LeaveTypes.Handlers.Commands;
+﻿using MCL.Application.DTOs.LeaveType.Validators;
+
+namespace MCL.Application.Features.LeaveTypes.Handlers.Commands;
 public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, int>
 {
     public CreateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository repository)
@@ -12,9 +14,18 @@ public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeComm
 
     public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
     {
-        var leaveType = Mapper.Map<LeaveType>(request.LeaveTypeDto);
+        #region Validator
+        var validator = new CreateLeaveTypeDtoValidator();
+        var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDto, cancellationToken);
+        if (validationResult.IsValid is false)
+        {
+            throw new Exception();
+        }
+        #endregion
+
+        var leaveType = Mapper.Map<LeaveType>(request.CreateLeaveTypeDto);
         leaveType = await Repository.AddAsync(leaveType, cancellationToken);
         return leaveType.Id;
+
     }
 }
-
