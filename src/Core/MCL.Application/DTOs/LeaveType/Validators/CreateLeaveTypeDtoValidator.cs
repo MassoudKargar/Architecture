@@ -1,10 +1,8 @@
-﻿using FluentValidation;
+﻿namespace MCL.Application.DTOs.LeaveType.Validators;
 
-namespace MCL.Application.DTOs.LeaveType.Validators;
-
-public class CreateLeaveTypeDtoValidator : AbstractValidator<CreateLeaveTypeDto>
+public class ILeaveTypeDtoValidator : AbstractValidator<ILeaveTypeDto>
 {
-    public CreateLeaveTypeDtoValidator()
+    public ILeaveTypeDtoValidator()
     {
         RuleFor(p => p.Name)
             .NotEmpty().WithMessage("{PropertyName} is required.")

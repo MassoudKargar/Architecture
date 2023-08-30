@@ -2,6 +2,7 @@
 
 global using System.Reflection;
 global using AutoMapper;
+global using FluentValidation;
 global using MCL.Application.DTOs;
 global using MCL.Application.DTOs.Common;
 global using MCL.Application.DTOs.LeaveAllocation;
