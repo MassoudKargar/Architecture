@@ -1,5 +1,5 @@
 ﻿namespace MCL.Application.DTOs.LeaveRequest;
-public class CreateLeaveRequestsDto : BaseDto,ILeaveRequestDto
+public class CreateLeaveRequestDto : BaseDto,ILeaveRequestDto
 {
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

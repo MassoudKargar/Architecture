@@ -12,6 +12,14 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
 
     public async Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
     {
+        #region Validator
+        var validator = new UpdateLeaveTypeValidator();
+        var validationResult = await validator.ValidateAsync(request.LeaveTypeDto, cancellationToken);
+        if (validationResult.IsValid is false)
+        {
+            throw new Exception();
+        }
+        #endregion
         var leaveType = await Repository.GetAsync(request.LeaveTypeDto.Id, cancellationToken);
         Mapper.Map(request.LeaveTypeDto, leaveType);
         await Repository.UpdateAsync(leaveType, cancellationToken);

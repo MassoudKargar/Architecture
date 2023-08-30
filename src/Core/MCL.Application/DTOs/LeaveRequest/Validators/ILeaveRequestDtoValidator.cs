@@ -1,9 +1,9 @@
 ﻿namespace MCL.Application.DTOs.LeaveRequest.Validators;
 public class ILeaveRequestDtoValidator : AbstractValidator<ILeaveRequestDto>
 {
-    private ILeaveRequestRepository Repository { get; }
+    private ILeaveTypeRepository Repository { get; }
 
-    public ILeaveRequestDtoValidator(ILeaveRequestRepository repository)
+    public ILeaveRequestDtoValidator(ILeaveTypeRepository repository)
     {
         Repository = repository;
         RuleFor(p => p.StartDate)

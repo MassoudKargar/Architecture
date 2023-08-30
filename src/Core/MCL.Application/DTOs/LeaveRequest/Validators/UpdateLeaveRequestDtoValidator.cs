@@ -1,9 +1,9 @@
 ﻿namespace MCL.Application.DTOs.LeaveRequest.Validators;
 public class UpdateLeaveRequestDtoValidator : AbstractValidator<UpdateLeaveRequestDto>
 {
-    private ILeaveRequestRepository Repository { get; }
+    private ILeaveTypeRepository Repository { get; }
 
-    public UpdateLeaveRequestDtoValidator(ILeaveRequestRepository repository)
+    public UpdateLeaveRequestDtoValidator(ILeaveTypeRepository repository)
     {
         Repository = repository;
         Include(new ILeaveRequestDtoValidator(Repository));
