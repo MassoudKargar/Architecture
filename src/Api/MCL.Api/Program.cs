@@ -5,7 +5,6 @@ builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer(); 
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddCors(o =>
 {
     o.AddPolicy("corsPolicy", b =>
@@ -20,12 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseCors("corsPolicy");
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
