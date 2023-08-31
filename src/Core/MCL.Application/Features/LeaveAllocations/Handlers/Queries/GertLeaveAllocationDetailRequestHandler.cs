@@ -1,5 +1,5 @@
 ﻿namespace MCL.Application.Features.LeaveAllocations.Handlers.Queries;
-public class GertLeaveAllocationDetailRequestHandler : IRequestHandler<GertLeaveAllocationDetailRequest, LeaveAllocationDto>
+public class GertLeaveAllocationDetailRequestHandler : IRequestHandler<GetLeaveAllocationDetailRequest, LeaveAllocationDto>
 {
     public GertLeaveAllocationDetailRequestHandler(ILeaveAllocationRepository repository, IMapper mapper)
     {
@@ -10,7 +10,7 @@ public class GertLeaveAllocationDetailRequestHandler : IRequestHandler<GertLeave
     private ILeaveAllocationRepository Repository { get; }
     private IMapper Mapper { get; }
 
-    public async Task<LeaveAllocationDto> Handle(GertLeaveAllocationDetailRequest request, CancellationToken cancellationToken) => 
+    public async Task<LeaveAllocationDto> Handle(GetLeaveAllocationDetailRequest request, CancellationToken cancellationToken) => 
         Mapper.Map<LeaveAllocationDto>(await Repository.GetLeaveAllocationWithDetails(request.Id,cancellationToken));
 }
 

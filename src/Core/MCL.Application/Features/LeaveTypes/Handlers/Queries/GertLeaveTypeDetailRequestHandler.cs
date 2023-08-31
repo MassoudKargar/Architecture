@@ -1,5 +1,5 @@
 ﻿namespace MCL.Application.Features.LeaveTypes.Handlers.Queries;
-public class GertLeaveTypeDetailRequestHandler : IRequestHandler<GertLeaveTypeDetailRequest,LeaveTypeDto>
+public class GertLeaveTypeDetailRequestHandler : IRequestHandler<GetLeaveTypeDetailRequest,LeaveTypeDto>
 {
     public GertLeaveTypeDetailRequestHandler(ILeaveTypeRepository repository, IMapper mapper)
     {
@@ -10,7 +10,7 @@ public class GertLeaveTypeDetailRequestHandler : IRequestHandler<GertLeaveTypeDe
     private ILeaveTypeRepository Repository { get; }
     private IMapper Mapper { get; }
 
-    public async Task<LeaveTypeDto> Handle(GertLeaveTypeDetailRequest request, CancellationToken cancellationToken) => 
+    public async Task<LeaveTypeDto> Handle(GetLeaveTypeDetailRequest request, CancellationToken cancellationToken) => 
         Mapper.Map<LeaveTypeDto>(await Repository.GetAsync(request.Id,cancellationToken));
 }
 
