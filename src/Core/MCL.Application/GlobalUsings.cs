@@ -20,6 +20,7 @@ global using MCL.Application.Features.LeaveRequests.Requests.Queries;
 global using MCL.Application.Features.LeaveTypes.Requests;
 global using MCL.Application.Features.LeaveTypes.Requests.Commands;
 global using MCL.Application.Features.LeaveTypes.Requests.Queries;
+global using MCL.Application.Models;
 global using MCL.Application.Responses;
 global using MCL.Domain;
 global using MediatR;

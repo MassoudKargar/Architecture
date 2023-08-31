@@ -1,13 +1,17 @@
-﻿   namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
+﻿   using MCL.Application.Contracts.Infrastructure;
+
+   namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
 public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveRequestCommand, BaseCommandResponse>
 {
-    public CreateLeaveRequestCommandHandler(ILeaveRequestRepository repository, IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
+    public CreateLeaveRequestCommandHandler(ILeaveRequestRepository repository, IMapper mapper, ILeaveTypeRepository leaveTypeRepository, IEmailSender emailSender)
     {
         Repository = repository;
         Mapper = mapper;
         LeaveTypeRepository = leaveTypeRepository;
+        EmailSender = emailSender;
     }
 
+    private IEmailSender EmailSender { get; }
     private ILeaveRequestRepository Repository { get; }
     private ILeaveTypeRepository LeaveTypeRepository { get; }
     private IMapper Mapper { get; }
@@ -31,6 +35,23 @@ public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveReque
         response.Success = true;
         response.Message = "Creation Successful";
         response.Id = leaveRequest.Id;
+
+        var email = new Email()
+        {
+            To = "MassoudKargar@outlook.com",
+            Subject = "Leave Request Submitted",
+            Body = $"Your leave request for {request.CreateLeaveRequestDto.StartDate} " +
+                   $"to {request.CreateLeaveRequestDto.EndDate} " +
+                   $"has been submitted"
+        };
+        try
+        {
+            await EmailSender.SendEmailAsync(email, cancellationToken);
+        }
+        catch (Exception e)
+        {
+            //TODO: log 
+        }
 
         return response;
     }
