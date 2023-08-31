@@ -1,4 +1,4 @@
-﻿namespace MCL.Application.Persistence.Contracts;
+﻿namespace MCL.Application.Contracts.Persistence;
 public interface ILeaveRequestRepository : IGenericRepository<LeaveRequest>
 {
     Task<LeaveRequest> GetLeaveRequestWithDetailsAsync(int id, CancellationToken cancellationToken);

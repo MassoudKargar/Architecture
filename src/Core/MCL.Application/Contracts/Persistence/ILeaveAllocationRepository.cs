@@ -1,4 +1,4 @@
-﻿namespace MCL.Application.Persistence.Contracts;
+﻿namespace MCL.Application.Contracts.Persistence;
 public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
 {
     Task<LeaveAllocation> GetLeaveAllocationWithDetails(int id, CancellationToken cancellationToken);

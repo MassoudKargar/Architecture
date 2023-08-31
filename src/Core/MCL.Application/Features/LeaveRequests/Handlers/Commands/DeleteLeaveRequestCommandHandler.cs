@@ -1,6 +1,4 @@
-﻿using MCL.Domain;
-
-namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
+﻿namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
 public class DeleteLeaveRequestCommandHandler : IRequestHandler<DeleteLeaveRequestCommand, Unit>
 {
     public DeleteLeaveRequestCommandHandler(ILeaveRequestRepository repository)

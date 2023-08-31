@@ -1,4 +1,4 @@
-﻿  namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
+﻿   namespace MCL.Application.Features.LeaveRequests.Handlers.Commands;
 public class CreateLeaveRequestCommandHandler : IRequestHandler<CreateLeaveRequestCommand, BaseCommandResponse>
 {
     public CreateLeaveRequestCommandHandler(ILeaveRequestRepository repository, IMapper mapper, ILeaveTypeRepository leaveTypeRepository)

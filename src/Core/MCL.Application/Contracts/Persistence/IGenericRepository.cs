@@ -1,4 +1,4 @@
-﻿namespace MCL.Application.Persistence.Contracts;
+﻿namespace MCL.Application.Contracts.Persistence;
 
 public interface IGenericRepository<T> where T : class
 {
