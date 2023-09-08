@@ -24,4 +24,15 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Core\MCL.Application\MCL.Application.csproj" />
+    <ProjectReference Include="..\..\src\Core\MCL.Domain\MCL.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\MCL.Infrastructure\MCL.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\MCL.Persistence\MCL.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LeaveTypes\Commands\" />
+  </ItemGroup>
+
 </Project>
